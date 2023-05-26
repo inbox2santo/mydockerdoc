@@ -1,0 +1,8 @@
+# docker login
+docker login $registry_url
+#docker pull
+docker pull $image
+#docker push
+docker push $registry_url
+#to start an container from an image for investigation purpose, this will automatically pull the docker image
+docker run -it --rm --entrypoint=/bin/bash $image 
