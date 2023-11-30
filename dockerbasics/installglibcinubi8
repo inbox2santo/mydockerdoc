@@ -1,0 +1,17 @@
+ FROM registry.redhat.io/ubi8:latest
+
+RUN yum install -y \
+    wget \
+    tar \
+    gcc \
+    make \
+    && wget https://ftp.gnu.org/gnu/glibc/glibc-<version>.tar.gz \
+    && tar -zxvf glibc-<version>.tar.gz \
+    && cd glibc-<version> \
+    && mkdir build \
+    && cd build \
+    && ../configure \
+    && make \
+    && make install \
+    && cd / \
+    && rm -rf glibc-<version> glibc-<version>.tar.gz
